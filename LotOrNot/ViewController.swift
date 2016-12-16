@@ -67,9 +67,36 @@ class ViewController: UIViewController {
                     self._currentLotId = (convertedJsonIntoDict["id"] as? Int)!
                     
                     if let url = NSURL(string: imageUrl!) {
+                        /*
+                         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                         UIImage * img = [UIImage imageNamed:@"background.jpg"];
+                         
+                         // Make a trivial (1x1) graphics context, and draw the image into it
+                         UIGraphicsBeginImageContext(CGSizeMake(1,1));
+                         CGContextRef context = UIGraphicsGetCurrentContext();
+                         CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), [img CGImage]);
+                         UIGraphicsEndImageContext();
+                         
+                         // Now the image will have been loaded and decoded and is ready to rock for the main thread
+                         dispatch_sync(dispatch_get_main_queue(), ^{
+                         [[self imageView] setImage: img];
+                         });
+                         });
+ */
                         if let data = NSData(contentsOfURL: url) {
-                            self.lotImage.image = UIImage(data: data)
-                            self.lotImage.reloadInputViews()
+                            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {() -> Void in
+                                var img = UIImage(data: data)
+                                // Make a trivial (1x1) graphics context, and draw the image into it
+                                UIGraphicsBeginImageContext(CGSizeMake(1, 1))
+                                var context = UIGraphicsGetCurrentContext()
+                                CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), img.CGImage!)
+                                UIGraphicsEndImageContext()
+                                // Now the image will have been loaded and decoded and is ready to rock for the main thread
+                                dispatch_sync(dispatch_get_main_queue(), {() -> Void in
+                                    self.lotImage!.image = img
+                                })
+                            })
+                            //self.lotImage.reloadInputViews()
                         }
                     }
                     
