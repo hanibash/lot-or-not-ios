@@ -17,12 +17,12 @@ class ViewController: UIViewController {
     var _currentLotId = 0
     
     @IBAction func likeButtonClicked(sender: AnyObject) {
-        print(self._currentLotId)
+        reactToLot("like")
         loadNextLot()
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
-        print(self._currentLotId)
+        reactToLot("dislike")
         loadNextLot()
     }
     
@@ -115,7 +115,44 @@ class ViewController: UIViewController {
         
     }
     
-    func likeLot(){
+    func reactToLot(reaction: String){
+        let scriptUrl = "http://ec2-54-196-192-180.compute-1.amazonaws.com/products/"+String(self._currentLotId)+"/"+reaction+"?access_token=c7619c6ea91a73e026431da13aabb3f8"
+        let myUrl = NSURL(string: scriptUrl);
+        let request = NSMutableURLRequest(URL:myUrl!);
+        request.HTTPMethod = "POST"
+        // Excute HTTP Request
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            // Check for error
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // Print out response string
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+            
+            
+            // Convert server json response to NSDictionary
+            do {
+                if (try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary) != nil {
+
+                    
+                }
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
+    
+    func cancelLot(){
         
     }
     
