@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var dislikeButton: UIButton!
     
     var _currentLotId = 0
+    struct Constants {
+        static let url = "http://ec2-54-196-192-180.compute-1.amazonaws.com"
+    }
     
     @IBAction func likeButtonClicked(sender: AnyObject) {
         reactToLot("like")
@@ -28,7 +31,7 @@ class ViewController: UIViewController {
     
     func loadNextLot(){
         
-        let scriptUrl = "http://ec2-54-196-192-180.compute-1.amazonaws.com/products/next.json?access_token=c7619c6ea91a73e026431da13aabb3f8"
+        let scriptUrl = Constants.url+"/products/next.json?access_token=c7619c6ea91a73e026431da13aabb3f8"
         // Add one parameter
         // Create NSURL Ibject
         let myUrl = NSURL(string: scriptUrl);
@@ -99,7 +102,7 @@ class ViewController: UIViewController {
     }
     
     func reactToLot(reaction: String){
-        let scriptUrl = "http://ec2-54-196-192-180.compute-1.amazonaws.com/products/"+String(self._currentLotId)+"/"+reaction+"?access_token=c7619c6ea91a73e026431da13aabb3f8"
+        let scriptUrl = Constants.url+"/products/"+String(self._currentLotId)+"/"+reaction+"?access_token=c7619c6ea91a73e026431da13aabb3f8"
         let myUrl = NSURL(string: scriptUrl);
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST"
