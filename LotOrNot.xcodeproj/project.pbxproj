@@ -417,6 +417,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tophatter.LotOrNot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -428,6 +429,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tophatter.LotOrNot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -496,6 +498,7 @@
 				0CED77CE1E0489B700C0154D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CED77CF1E0489B700C0154D /* Build configuration list for PBXNativeTarget "LotOrNotTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +507,7 @@
 				0CED77D11E0489B700C0154D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CED77D21E0489B700C0154D /* Build configuration list for PBXNativeTarget "LotOrNotUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +516,7 @@
 				0CED77D41E0489B700C0154D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
