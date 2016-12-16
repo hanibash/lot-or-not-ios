@@ -14,6 +14,9 @@
 		0CED77B21E0489B700C0154D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CED77B01E0489B700C0154D /* LaunchScreen.storyboard */; };
 		0CED77BD1E0489B700C0154D /* LotOrNotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED77BC1E0489B700C0154D /* LotOrNotTests.swift */; };
 		0CED77C81E0489B700C0154D /* LotOrNotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED77C71E0489B700C0154D /* LotOrNotUITests.swift */; };
+		0CED77D61E0489CA00C0154D /* Screen Shot 2016-12-14 at 2.06.02 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CED77D51E0489CA00C0154D /* Screen Shot 2016-12-14 at 2.06.02 PM.png */; };
+		0CED77D81E04950900C0154D /* heart-shape-button.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CED77D71E04950900C0154D /* heart-shape-button.jpg */; };
+		0CED77DA1E04952800C0154D /* cancel_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CED77D91E04952800C0154D /* cancel_button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		0CED77C31E0489B700C0154D /* LotOrNotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LotOrNotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CED77C71E0489B700C0154D /* LotOrNotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotOrNotUITests.swift; sourceTree = "<group>"; };
 		0CED77C91E0489B700C0154D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CED77D51E0489CA00C0154D /* Screen Shot 2016-12-14 at 2.06.02 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2016-12-14 at 2.06.02 PM.png"; sourceTree = "<group>"; };
+		0CED77D71E04950900C0154D /* heart-shape-button.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "heart-shape-button.jpg"; sourceTree = "<group>"; };
+		0CED77D91E04952800C0154D /* cancel_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,9 @@
 		0CED77A61E0489B700C0154D /* LotOrNot */ = {
 			isa = PBXGroup;
 			children = (
+				0CED77D91E04952800C0154D /* cancel_button.png */,
+				0CED77D51E0489CA00C0154D /* Screen Shot 2016-12-14 at 2.06.02 PM.png */,
+				0CED77D71E04950900C0154D /* heart-shape-button.jpg */,
 				0CED77A71E0489B700C0154D /* AppDelegate.swift */,
 				0CED77A91E0489B700C0154D /* ViewController.swift */,
 				0CED77AB1E0489B700C0154D /* Main.storyboard */,
@@ -229,8 +238,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CED77D61E0489CA00C0154D /* Screen Shot 2016-12-14 at 2.06.02 PM.png in Resources */,
+				0CED77DA1E04952800C0154D /* cancel_button.png in Resources */,
 				0CED77B21E0489B700C0154D /* LaunchScreen.storyboard in Resources */,
 				0CED77AF1E0489B700C0154D /* Assets.xcassets in Resources */,
+				0CED77D81E04950900C0154D /* heart-shape-button.jpg in Resources */,
 				0CED77AD1E0489B700C0154D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
