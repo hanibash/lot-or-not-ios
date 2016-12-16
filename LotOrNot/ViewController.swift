@@ -22,12 +22,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
-        
+        print(self._currentLotId)
+        loadNextLot()
     }
     
     func loadNextLot(){
         
-        let scriptUrl = "http://ec2-54-196-192-180.compute-1.amazonaws.com/products/next.json?access_token=72b132ca963c5ade9499bf32f6c29ad8"
+        let scriptUrl = "http://ec2-54-196-192-180.compute-1.amazonaws.com/products/next.json?access_token=c7619c6ea91a73e026431da13aabb3f8"
         // Add one parameter
         // Create NSURL Ibject
         let myUrl = NSURL(string: scriptUrl);
@@ -83,21 +84,22 @@ class ViewController: UIViewController {
                          });
                          });
  */
-                        if let data = NSData(contentsOfURL: url) {
-                            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {() -> Void in
+                        
+                        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {() -> Void in
+                            if let data = NSData(contentsOfURL: url) {
                                 var img = UIImage(data: data)
                                 // Make a trivial (1x1) graphics context, and draw the image into it
                                 UIGraphicsBeginImageContext(CGSizeMake(1, 1))
                                 var context = UIGraphicsGetCurrentContext()
-                                CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), img.CGImage!)
+                                CGContextDrawImage(context!, CGRectMake(0, 0, 1, 1), img!.CGImage!)
                                 UIGraphicsEndImageContext()
                                 // Now the image will have been loaded and decoded and is ready to rock for the main thread
                                 dispatch_sync(dispatch_get_main_queue(), {() -> Void in
                                     self.lotImage!.image = img
                                 })
-                            })
-                            //self.lotImage.reloadInputViews()
-                        }
+                            }
+                        })
+                        //self.lotImage.reloadInputViews()
                     }
                     
                     print(imageUrl)
