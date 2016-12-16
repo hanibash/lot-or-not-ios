@@ -14,10 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var dislikeButton: UIButton!
     
+    var _currentLotId = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBAction func likeButtonClicked(sender: AnyObject) {
+        print(self._currentLotId)
+        loadNextLot()
+    }
+    
+    @IBAction func cancelButtonClicked(sender: AnyObject) {
+        
+    }
+    
+    func loadNextLot(){
         
         let scriptUrl = "http://ec2-54-196-192-180.compute-1.amazonaws.com/products/next.json?access_token=72b132ca963c5ade9499bf32f6c29ad8"
         // Add one parameter
@@ -56,6 +64,7 @@ class ViewController: UIViewController {
                     
                     // Get value by key
                     let imageUrl = convertedJsonIntoDict["primary_image"] as? String
+                    self._currentLotId = (convertedJsonIntoDict["id"] as? Int)!
                     
                     if let url = NSURL(string: imageUrl!) {
                         if let data = NSData(contentsOfURL: url) {
@@ -75,6 +84,16 @@ class ViewController: UIViewController {
         
         task.resume()
         
+    }
+    
+    func likeLot(){
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        loadNextLot()
 
     }
     

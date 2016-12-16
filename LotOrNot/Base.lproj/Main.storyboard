@@ -32,19 +32,25 @@
                                     <rect key="frame" x="80" y="95" width="240" height="336"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIT-KP-b84">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button" image="cancel_button.png"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="225" y="449.5" width="134" height="116.5"/>
-                                </variation>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjZ-x3-JIf">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Button" image="heart-shape-button.jpg"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="33" y="448" width="163" height="118"/>
                                 </variation>
+                                <connections>
+                                    <action selector="likeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pX5-fW-s3y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIT-KP-b84">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button" image="cancel_button.png"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="225" y="449" width="134" height="116.5"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6FV-YK-GPZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -52,16 +58,16 @@
                             <mask key="subviews">
                                 <exclude reference="JOE-4P-aec"/>
                                 <exclude reference="4f5-BQ-YG7"/>
-                                <exclude reference="nIT-KP-b84"/>
                                 <exclude reference="yjZ-x3-JIf"/>
+                                <exclude reference="nIT-KP-b84"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="JOE-4P-aec"/>
                                 <include reference="4f5-BQ-YG7"/>
-                                <include reference="nIT-KP-b84"/>
                                 <include reference="yjZ-x3-JIf"/>
+                                <include reference="nIT-KP-b84"/>
                             </mask>
                         </variation>
                     </view>
